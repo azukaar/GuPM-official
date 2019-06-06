@@ -1,6 +1,7 @@
 # 🐶 Official GuPM repository
 
-This repository is your go-to repo for basic GuPM plugins
+This repository is your go-to repo for basic GuPM plugins.
+See : https://github.com/azukaar/GuPM
 
 ## 📦 provider-go
 
