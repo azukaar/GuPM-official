@@ -1,0 +1,10 @@
+{
+    "packages": {
+        "provider-go": [
+            "0.0.1"
+        ],
+        "provider-npm": [
+            "0.0.1"
+        ]
+    }
+}

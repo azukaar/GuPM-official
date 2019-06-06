@@ -1,0 +1,14 @@
+{
+    "name": "provider-npm",
+    "version": "0.0.1",
+    "publish": {
+        "source": ".",
+        "dest": "../docs/repo"
+    },
+    "config": {
+        "default": {
+            "entrypoint": "package.json",
+            "installPath": "node_modules"
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "provider-go",
+    "version": "0.0.1",
+    "publish": {
+        "source": ".",
+        "dest": "../docs/repo"
+    },
+    "config": {
+        "default": {
+            "entrypoint": "go.mod",
+            "installPath": "go_modules/src"
+        }
+    }
+}
