@@ -9,7 +9,7 @@ if(fileExists("gupm.json")) {
     exit()
 }
 
-if(template === 1) {
+if(template === 2) {
     var name;
     var description; 
     var author;
