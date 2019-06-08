@@ -17,9 +17,47 @@ var result = {
     name: name,
     description: description,
     author: author,
-    licence: licence || "ISC"
+    licence: licence || "ISC",
+    cli: {
+        aliases: {
+            start: "build/bin"
+        }
+    }
 }
 
 
 writeJsonFile("gupm.json", result)
 writeFile(".gupm_rc.gs", 'env("GOPATH", run("go", ["env", "GOROOT"]) + ":" + pwd() + "/go_modules")')
+writeFile("build.gs", 
+'removeFiles(["build"]);\n' +
+'var goArgs = ["build", "-o", "build/bin"]\n' +
+'goArgs = goArgs.concat(dir("src/*.go"))\n' +
+'exec("go", goArgs);\n')
+
+mkdir('src')
+
+writeFile("src/index.go", 
+"package main\n" +
+'import "fmt"\n\n' +
+"func main() {\n" +
+'fmt.Println("Hello GuPM!")\n'+
+"}\n"
+)
+
+readme = "# "+name + "\n";
+readme += "# Installation\n";
+readme += "You need [GuPM](https://github.com/azukaar/GuPM) with the [provider-go](https://github.com/azukaar/GuPM-official#provider-go) plugin to run this project.\n";
+readme += "```\n";
+readme += "g make\n";
+readme += "```\n";
+readme += "# Add dependencies\n";
+readme += "```\n";
+readme += "g i go://newPackage\n";
+readme += "```\n\n";
+readme += "# Build and start\n";
+readme += "```\n";
+readme += "g build\n";
+readme += "g start\n";
+readme += "```\n\n";
+
+writeFile("readme.md", readme)
