@@ -3,6 +3,9 @@ var version = Dependency.version;
 
 if(name.match(/^github/)) {
     var realname = name.match(/^github.com\/([\w\.\-\_]+\/[\w\.\-\_]+)/)
+    if(Dependency.version === "*.*.*") {
+      Dependency.version = "master"
+    }
     Dependency.url = 'https://github.com/' + realname[1] + '/archive/'+(version || 'master')+'.zip'
 } else if(name.match(/^gopkg.in/)) {
     var payload = httpGet("https://"+name)
