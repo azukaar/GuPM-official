@@ -18,6 +18,9 @@ var result = {
     description: description,
     author: author,
     licence: licence || "ISC",
+    dependencies: {
+        defaultProvider: "go"
+    },
     cli: {
         aliases: {
             start: "build/bin"
@@ -50,9 +53,9 @@ readme += "You need [GuPM](https://github.com/azukaar/GuPM) with the [provider-g
 readme += "```\n";
 readme += "g make\n";
 readme += "```\n";
-readme += "# Add dependencies\n";
+readme += "# Add dependencies from a go project\n";
 readme += "```\n";
-readme += "g i go://newPackage\n";
+readme += "g i newPackage\n";
 readme += "```\n\n";
 readme += "# Build and start\n";
 readme += "```\n";

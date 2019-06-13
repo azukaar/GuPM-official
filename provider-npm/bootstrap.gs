@@ -42,6 +42,14 @@ if(template === 2) {
     }
     
     writeJsonFile("package.json", result) 
+
+    result["cli"] = {
+        "defaultProviders": {
+            "install": "npm",
+            "make": "npm"
+        }
+    }
+
     writeJsonFile("gupm.json", result)
 
     writeFile("make.gs", "exec('g', ['make', '-p', 'npm']);")
@@ -54,7 +62,7 @@ if(template === 2) {
     readme += "```\n";
     readme += "# Add dependencies\n";
     readme += "```\n";
-    readme += "g i -p npm newPackage\n";
+    readme += "g i newPackage\n";
     readme += "```\n\n";
 
     if(fileExists("readme.md")) {
@@ -105,6 +113,7 @@ else {
         author: author,
         licence: licence || "ISC",
         dependencies: {
+            defaultProvider: "npm",
             default: {}
         },
         cli: {
@@ -176,9 +185,9 @@ else {
     readme += "```\n";
     readme += "g make\n";
     readme += "```\n";
-    readme += "# Add dependencies\n";
+    readme += "# Add dependencies fron npm\n";
     readme += "```\n";
-    readme += "g i npm://newPackage\n";
+    readme += "g i newPackage\n";
     readme += "```\n\n";
 
     if(fileExists("readme.md")) {
