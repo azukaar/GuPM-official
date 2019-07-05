@@ -5,7 +5,7 @@
 // Path  : Future path of downloaded package
 // Result : binary downloaded
 
-if (Result == "Not Found") {
+if (Result.trim() == "Not Found" || Result.trim() == "404: Not Found") {
     console.error("Dependency not found")
     console.error(Url)
     console.error(Name + "@" + Version)
