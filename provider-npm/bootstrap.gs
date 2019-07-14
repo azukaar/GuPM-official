@@ -13,7 +13,7 @@ if(template === 2) {
     var name;
     var description; 
     var author;
-    var licence;
+    var license;
 
     if(fileExists("package.json")) {
         console.log("Found package.json... Importing.");
@@ -21,12 +21,12 @@ if(template === 2) {
         name = config.name;
         description = config.description; 
         author = config.author;
-        licence = config.licence;
+        license = config.license;
     } else {
         name = waitForInput("Please enter the name of the project: ");
         description = waitForInput("Enter a description: ");
         author = waitForInput("Enter the author: ");
-        licence = waitForInput("Enter the licence (ISC): ");
+        license = waitForInput("Enter the license (ISC): ");
     }
 
     if(name == "") {
@@ -38,7 +38,7 @@ if(template === 2) {
         name: name,
         description: description,
         author: author,
-        licence: licence || "ISC"
+        license: license || "ISC"
     }
     
     writeJsonFile("package.json", result) 
@@ -76,7 +76,7 @@ else {
     var name;
     var description; 
     var author;
-    var licence;
+    var license;
     var dependencies;
     var devDependencies;
     var bin;
@@ -89,7 +89,7 @@ else {
         name = config.name;
         description = config.description; 
         author = config.author;
-        licence = config.licence;
+        license = config.license;
         devDependencies = config.devDependencies;
         dependencies = config.dependencies;
         bin = config.bin;
@@ -99,7 +99,7 @@ else {
         name = waitForInput("Please enter the name of the project: ");
         description = waitForInput("Enter a description: ");
         author = waitForInput("Enter the author: ");
-        licence = waitForInput("Enter the licence (ISC): ");
+        license = waitForInput("Enter the license (ISC): ");
     }
 
     if(name == "") {
@@ -111,7 +111,7 @@ else {
         name: name,
         description: description,
         author: author,
-        licence: licence || "ISC",
+        license: license || "ISC",
         dependencies: {
             defaultProvider: "npm",
             default: {}

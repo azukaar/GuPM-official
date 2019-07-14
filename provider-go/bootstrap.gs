@@ -6,7 +6,7 @@ if(fileExists("gupm.json")) {
 var name = waitForInput("Please enter the name of the project: ")
 var description = waitForInput("Enter a description: ")
 var author = waitForInput("Enter the author: ")
-var licence = waitForInput("Enter the licence (ISC): ")
+var license = waitForInput("Enter the license (ISC): ")
 
 if(name == "") {
     console.error("Name cannot be empty. Try again.")
@@ -17,7 +17,8 @@ var result = {
     name: name,
     description: description,
     author: author,
-    licence: licence || "ISC",
+    license: license || "ISC",
+    wrapInstallFolder: "src",
     dependencies: {
         defaultProvider: "go"
     },
@@ -30,7 +31,7 @@ var result = {
 
 
 writeJsonFile("gupm.json", result)
-writeFile(".gupm_rc.gs", 'env("GOPATH", run("go", ["env", "GOROOT"]) + ":" + pwd() + "/go_modules")')
+writeFile(".gupm_rc.gs", 'env("GOPATH", run("go", ["env", "GOROOT"]) + ":" + pwd() + "/go_modules" + ":" + pwd() + "/gupm_modules")')
 writeFile("build.gs", 
 'removeFiles(["build"]);\n' +
 'var goArgs = ["build", "-o", "build/bin"]\n' +
