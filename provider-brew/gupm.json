@@ -1,0 +1,24 @@
+{
+    "author": "Yann Stepienik",
+    "config": {
+        "default": {
+            "entrypoint": "gupm.json",
+            "installPath": "gupm_modules"
+        }
+    },
+    "dependencies": {
+        "default": {
+            "git://github.com/Homebrew/brew": "master"
+        }
+    },
+    "description": "Provider for Homebrew on Mac",
+    "licence": "",
+    "name": "provider-brew",
+    "publish": {
+        "dest": "../docs/repo",
+        "source": [
+            "."
+        ]
+    },
+    "version": "0.0.1"
+}

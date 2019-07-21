@@ -1,5 +1,8 @@
 {
     "packages": {
+        "provider-brew": [
+            "0.0.1"
+        ],
         "provider-go": [
             "0.0.1",
             "0.1.0",
