@@ -16,9 +16,7 @@
     "name": "provider-brew",
     "publish": {
         "dest": "../docs/repo",
-        "source": [
-            "."
-        ]
+        "source": ["."]
     },
     "version": "0.0.1"
 }
