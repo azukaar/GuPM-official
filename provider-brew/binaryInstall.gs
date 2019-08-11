@@ -7,7 +7,7 @@ function installDir(files) {
         
         for(b in binFiles) {
             bname = binFiles[b]
-            createSymLink("../gupm_modules/"+dirName+"/bin/"+bname, '.bin/' + bname)
+            createSymLink("../gupm_modules/"+dirName+"/bin/"+bname,  Destination + '/' + bname)
         }
     }
 }

@@ -1,0 +1,12 @@
+{
+    "author": "",
+    "dependencies": {
+        "default": {
+            "gupm://node": "*.*.*"
+        }
+    },
+    "description": "",
+    "licence": "ISC",
+    "name": "sad",
+    "version": "0.0.1"
+}

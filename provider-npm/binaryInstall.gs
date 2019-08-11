@@ -14,12 +14,12 @@ function installDir(files, parent) {
             if(package.bin) {
                 if(typeof package.bin == 'string') {
                     var relPath = '../node_modules/' + parent + dirName + '/' +package.bin.replace(/^\.\//, '')
-                    createSymLink(relPath, '.bin/' + package.name)
+                    createSymLink(relPath, Destination + '/' +  package.name)
                 } else {
                     for(b in package.bin) {
                         var bin = package.bin[b]
                         var relPath = '../node_modules/' + parent + dirName + '/' +bin.replace(/^\.\//, '')
-                        createSymLink(relPath, '.bin/' + b)
+                        createSymLink(relPath, Destination + '/' +  b)
                     }
                 }
             }
