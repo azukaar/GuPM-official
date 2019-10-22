@@ -34,11 +34,12 @@ if (name.match(/^github/)) {
         console.log("error extracting name in " + Dependency.name)
     }
 } else if (name.match(/golang.org/)) {
+    console.log(1, name)
     if (Dependency.version === "*.*.*" || Dependency.version.match(/^v0\.0\.0/)) {
         Dependency.version = "master"
     }
 
-    var packageName = Dependency.name.match(/x\/([\w-_]+)$/)
+    var packageName = Dependency.name.match(/\/([\w-_]+)$/)
     if (packageName) {
         Dependency.url = 'https://github.com/golang/' + packageName[1] + '/archive/' + (Dependency.version || 'master') + '.zip'
     } else {
@@ -46,6 +47,7 @@ if (name.match(/^github/)) {
         console.log("error extracting name in " + Dependency.name)
     }
 } else {
+    console.log(2, name)
     Dependency.url = ""
     console.log("error extracting name in " + Dependency.name)
 }
