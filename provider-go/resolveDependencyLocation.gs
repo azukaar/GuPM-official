@@ -34,7 +34,6 @@ if (name.match(/^github/)) {
         console.log("error extracting name in " + Dependency.name)
     }
 } else if (name.match(/golang.org/)) {
-    console.log(1, name)
     if (Dependency.version === "*.*.*" || Dependency.version.match(/^v0\.0\.0/)) {
         Dependency.version = "master"
     }
