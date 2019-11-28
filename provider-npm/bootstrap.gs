@@ -51,8 +51,6 @@ if(template === 2) {
     }
 
     writeJsonFile("gupm.json", result)
-
-    writeFile("make.gs", "exec('g', ['make', '-p', 'npm']);")
     
     readme = "# "+name + "\n";
     readme += "# Installation\n";
@@ -77,6 +75,7 @@ else {
     var description; 
     var author;
     var license;
+    var version;
     var dependencies;
     var devDependencies;
     var bin;
@@ -87,6 +86,7 @@ else {
         console.log("Found package.json... Importing.");
         config = readJsonFile('package.json');
         name = config.name;
+        version = config.version;
         description = config.description; 
         author = config.author;
         license = config.license;
@@ -111,6 +111,7 @@ else {
         name: name,
         description: description,
         author: author,
+        version: version || "0.0.1",
         license: license || "ISC",
         dependencies: {
             defaultProvider: "npm",
