@@ -14,6 +14,7 @@ if(template === 2) {
     var description; 
     var author;
     var license;
+    var version;
 
     if(fileExists("package.json")) {
         console.log("Found package.json... Importing.");
@@ -22,6 +23,7 @@ if(template === 2) {
         description = config.description; 
         author = config.author;
         license = config.license;
+        version = config.version;
     } else {
         name = waitForInput("Please enter the name of the project: ");
         description = waitForInput("Enter a description: ");
@@ -36,6 +38,7 @@ if(template === 2) {
     
     var result = {
         name: name,
+        version: version || "0.0.1",
         description: description,
         author: author,
         license: license || "ISC"
