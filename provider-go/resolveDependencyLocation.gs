@@ -5,6 +5,9 @@ if (name.match(/^github/)) {
     if (Dependency.version === "*.*.*" || Dependency.version.match(/^v0\.0\.0/)) {
         Dependency.version = "master"
     }
+    if(Dependency.version.match(/^v[0-9]/i)) {
+        Dependency.version = Dependency.version.split('-')[0];
+    }
     Dependency.url = 'https://github.com/' + realname[1] + '/archive/' + (Dependency.version || 'master') + '.zip'
 } else if (name.match(/^gopkg.in/)) {
     var payload = httpGet("https://" + name)
@@ -25,7 +28,9 @@ if (name.match(/^github/)) {
     if (Dependency.version === "*.*.*" || Dependency.version.match(/^v0\.0\.0/)) {
         Dependency.version = "master"
     }
-
+    if(Dependency.version.match(/^v[0-9]/i)) {
+        Dependency.version = Dependency.version.split('-')[0];
+    }
     var packageName = Dependency.name.match(/x\/([\w-_]+)$/)
     if (packageName) {
         Dependency.url = 'https://github.com/golang/' + packageName[1] + '/archive/' + (Dependency.version || 'master') + '.zip'
@@ -37,7 +42,9 @@ if (name.match(/^github/)) {
     if (Dependency.version === "*.*.*" || Dependency.version.match(/^v0\.0\.0/)) {
         Dependency.version = "master"
     }
-
+    if(Dependency.version.match(/^v[0-9]/i)) {
+        Dependency.version = Dependency.version.split('-')[0];
+    }
     var packageName = Dependency.name.match(/\/([\w-_]+)$/)
     if (packageName) {
         Dependency.url = 'https://github.com/golang/' + packageName[1] + '/archive/' + (Dependency.version || 'master') + '.zip'
@@ -46,7 +53,6 @@ if (name.match(/^github/)) {
         console.log("error extracting name in " + Dependency.name)
     }
 } else {
-    console.log(2, name)
     Dependency.url = ""
     console.log("error extracting name in " + Dependency.name)
 }

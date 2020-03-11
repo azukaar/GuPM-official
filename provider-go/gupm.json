@@ -1,6 +1,6 @@
 {
     "name": "provider-go",
-    "version": "0.2.5",
+    "version": "0.2.6",
     "publish": {
         "source": ["."],
         "dest": "../docs/repo"

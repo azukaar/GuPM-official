@@ -25,13 +25,15 @@ if(!finalVersion) {
     console.error('Error: Couldn\'t resolve version for ' + name + ' with range ' + version)
 }
 
+var finalDepName = !name.match('^@') && !name.match('/') ? name : name.split('/')[1];
+
 Dependency.version = finalVersion;
 Dependency.url = 'https://registry.npmjs.org/' + 
     name +
     '/-/' +
-    name +
+    finalDepName +
     '-' +
     finalVersion +
-    '.tgz'
+    '.tgz';
 
 Dependency;
