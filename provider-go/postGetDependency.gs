@@ -11,8 +11,12 @@ if (Result.trim() == "Not Found" || Result.trim() == "404: Not Found") {
     console.error(Name + "@" + Version)
     exit()
 } else {
-    var folder = unzip(Result);
-
+    var folder;
+    if(Url.match(/\.zip$/)) {
+        folder = unzip(Result);
+    } else if(Url.match(/\.tar\.gz$/)) {
+        folder = untar(Result);
+    }
     var firstChildrenName = Object.keys(folder.Children)[0];
     var firstChildren = folder.Children[firstChildrenName];
     
