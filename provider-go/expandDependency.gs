@@ -2,6 +2,13 @@ Dependency.dependencies = [];
 
 if(fileExists(Dependency.path + '/go.mod')) {
     var goMod = readFile(Dependency.path + '/go.mod');
+
+    if(!goMod) {
+        goMod = readFile(Dependency.path + '/vendor.mod');
+        if(goMod) {
+            removeFiles(Dependency.path + '/vendor')
+        }
+    }
     
     if(goMod) {
         var requires = goMod.match(/require\s\(\n?([\s\w\_\-\.\/\n]+)\n?\)/)
