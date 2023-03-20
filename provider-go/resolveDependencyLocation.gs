@@ -1,5 +1,6 @@
 var name = Dependency.name;
 
+Dependency.version = Dependency.version.replace(/\+incompatible/, '');
 
 function process() {
     if (name.match(/^github/)) {
@@ -21,15 +22,15 @@ function process() {
             }
 
             if(name != 'github.com/' + realname[1]) {
-                var tn = name.split(realname[1] + '/')[1]
+                var tn = name.split(realname[1] + '/')[1] + '/'
                 
-                if(tn.match(/\/v[0-9]+$/)) {
-                    tn = tn.split('/v')[0]
-                } else if(tn.match(/^v[0-9]+$/)) {
+                if(tn.match(/\/v[0-9]+\/$/)) {
+                    tn = tn.split('/v')[0] + '/'
+                } else if(tn.match(/^v[0-9]+\/$/)) {
                     tn = ''
                 }
 
-                Dependency.version = tn + '/' + Dependency.version
+                Dependency.version = tn + Dependency.version
             }
 
             if(Dependency.version.match(/^[0-9a-z]+$/)) {

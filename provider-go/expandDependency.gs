@@ -6,13 +6,16 @@ if(fileExists(Dependency.path + '/go.mod')) {
     goMod = readFile(Dependency.path + '/go.mod');
 
 }
+
 else if(fileExists(Dependency.path + '/vendor.mod')) {
     goMod = readFile(Dependency.path + '/vendor.mod');
     removeFiles(Dependency.path + '/vendor/')
 }
 
+
 if(goMod != null) {
-    var requires = goMod.match(/require\s\(\n?([\s\w\_\-\.\/\n]+)\n?\)/)
+    var requires = goMod.match(/require\s\(\n?([\s\w\_\-\.\/\+\n]+)\n?\)/)
+
     if(requires != null) {
         requires = requires[1].split(/\n/);
 
